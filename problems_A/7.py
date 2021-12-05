@@ -16,4 +16,3 @@ else:
         print(ogr[0][0] + 1, ogr[1][1] + 1)
     else:
         print(ogr[0][0] + 1, ogr[2][1] + 1)
-
