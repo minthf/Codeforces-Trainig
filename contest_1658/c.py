@@ -1,18 +1,21 @@
-t= int(input())
-for i in range(t):
+import sys
+input = sys.stdin.readline
+ 
+t = int(input())
+for _ in range (t):
     n = int(input())
-    arr = list(map(int, input().split()))
-    found = True
-    for i in range(n):
-        if i + 1 < n and arr[i] == n and arr[i + 1] != 1:
-            found = False
-        if i + 1 < n and arr[i] == 1 and arr[i + 1] != 2:
-            found = False
-        if arr.count(n) > 1:
-            found = False
-        if arr.count(1) > 1:
-            found = False
-    if found:
-        print('YES')
-    else:
-        print('NO')
+    a = list(map(int, input().split()))
+ 
+    if a.count(1) != 1:
+        print("NO")
+        continue
+ 
+    a.append(a[0])
+    ok = True
+    for i in range (0, n):
+        if a[i + 1] - a[i] > 1:
+            ok = False
+            break
+    
+    if ok: print("YES")
+    else: print("NO")
